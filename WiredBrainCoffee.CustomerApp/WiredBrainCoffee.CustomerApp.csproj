@@ -3,10 +3,13 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
 	<AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <TargetFramework>net9.0-windows</TargetFramework>
+	<TargetFramework>net9.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
-
+    
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+	<Exec WorkingDirectory="bin\$(Configuration)\$(TargetFramework)" Command="cd" />
+  </Target>
 </Project>

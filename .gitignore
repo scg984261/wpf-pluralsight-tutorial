@@ -5,3 +5,4 @@
 /.vs
 /WiredBrainCoffee.CustomerApp/obj
 *.user
+/WiredBrainCoffee.CustomerApp/bin/Debug/net9.0-windows

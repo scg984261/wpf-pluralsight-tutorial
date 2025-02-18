@@ -11,5 +11,10 @@ namespace WiredBrainCoffee.CustomerApp
         {
             InitializeComponent();
         }
+
+        private void NewCustomerButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Customer Added!");
+        }
     }
 }
