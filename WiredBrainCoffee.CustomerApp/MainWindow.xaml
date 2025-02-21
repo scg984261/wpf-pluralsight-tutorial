@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" FontSize="20">
     <Grid>
-        <Button Name="NewCustomerButton" Content="New Customer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="150" Height="40" Click="NewCustomerButton_Click" />
+        <Button Name="NewCustomerButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Width="90" Height="40" Click="NewCustomerButton_Click">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Images\add.png" Height="18" Margin="0,0,10,0" />
+                    <TextBlock Text="Add" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
     </Grid>
 </Window>

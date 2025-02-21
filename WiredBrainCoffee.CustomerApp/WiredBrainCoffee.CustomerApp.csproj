@@ -8,6 +8,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\add.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+  </ItemGroup>
     
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
 	<Exec WorkingDirectory="bin\$(Configuration)\$(TargetFramework)" Command="cd" />
