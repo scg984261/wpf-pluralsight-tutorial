@@ -28,11 +28,7 @@ namespace WiredBrainCoffee.CustomersApp.View
 
         public void ButtonMoveNavigation_Click(object sender, RoutedEventArgs eventArgs)
         {
-            int column = Grid.GetColumn(this.customerListGrid);
-
-            int newColumn = column == 0 ? 2 : 0;
-
-            Grid.SetColumn(customerListGrid, newColumn);
+            this.customerViewModel.MoveNavigation();
         }
 
         public void AddCustomer_Click(object sender, RoutedEventArgs eventArgs)

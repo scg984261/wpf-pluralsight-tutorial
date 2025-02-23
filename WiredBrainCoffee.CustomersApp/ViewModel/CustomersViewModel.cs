@@ -25,6 +25,23 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             }
         }
 
+        private int navigationColumn;
+
+        public int NavigationColumn
+        {
+            get
+            {
+                return this.navigationColumn;
+            }
+
+            set
+            {
+                this.navigationColumn = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
             this.customerDataProvider = customerDataProvider;
@@ -48,7 +65,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             }
         }
 
-        public void Add()
+        internal void Add()
         {
             var customer = new Customer
             {
@@ -58,6 +75,12 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             CustomerItemViewModel customerItemViewModel = new CustomerItemViewModel(customer);
             this.Customers.Add(customerItemViewModel);
             this.SelectedCustomer = customerItemViewModel;
+        }
+
+        internal void MoveNavigation()
+        {
+            int newColumn = this.NavigationColumn == 0 ? 2 : 0;
+            this.NavigationColumn = newColumn;
         }
     }
 }
