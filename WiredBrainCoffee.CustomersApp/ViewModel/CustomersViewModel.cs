@@ -1,18 +1,16 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Linq;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using WiredBrainCoffee.CustomersApp.Data;
 using WiredBrainCoffee.CustomersApp.Model;
 
 namespace WiredBrainCoffee.CustomersApp.ViewModel
 {
-    public class CustomersViewModel : INotifyPropertyChanged
+    public class CustomersViewModel : ViewModelBase
     {
         private readonly ICustomerDataProvider customerDataProvider;
         public ObservableCollection<Customer> Customers { get; } = new ObservableCollection<Customer>();
-        public event PropertyChangedEventHandler? PropertyChanged;
+        
         private Customer? selectedCustomer;
         public Customer? SelectedCustomer
         {
@@ -59,11 +57,6 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
 
             this.Customers.Add(customer);
             this.SelectedCustomer = customer;
-        }
-
-        private void NotifyPropertyChanged([CallerMemberName] string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
