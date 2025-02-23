@@ -7,3 +7,4 @@
 *.user
 /WiredBrainCoffee.CustomerApp/bin/Debug/net9.0-windows
 /WiredBrainCoffee.CustomersApp/obj
+/WiredBrainCoffee.CustomersApp/bin/Debug/net9.0-windows
