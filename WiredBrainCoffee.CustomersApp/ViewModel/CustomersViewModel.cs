@@ -9,10 +9,10 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
     public class CustomersViewModel : ViewModelBase
     {
         private readonly ICustomerDataProvider customerDataProvider;
-        public ObservableCollection<Customer> Customers { get; } = new ObservableCollection<Customer>();
+        public ObservableCollection<CustomerItemViewModel> Customers { get; } = new ObservableCollection<CustomerItemViewModel>();
         
-        private Customer? selectedCustomer;
-        public Customer? SelectedCustomer
+        private CustomerItemViewModel? selectedCustomer;
+        public CustomerItemViewModel? SelectedCustomer
         {
             get
             {
@@ -43,7 +43,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             {
                 foreach (Customer customer in customers)
                 {
-                    this.Customers.Add(customer);
+                    this.Customers.Add(new CustomerItemViewModel(customer));
                 }
             }
         }
@@ -55,8 +55,9 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
                 FirstName = "New"
             };
 
-            this.Customers.Add(customer);
-            this.SelectedCustomer = customer;
+            CustomerItemViewModel customerItemViewModel = new CustomerItemViewModel(customer);
+            this.Customers.Add(customerItemViewModel);
+            this.SelectedCustomer = customerItemViewModel;
         }
     }
 }
