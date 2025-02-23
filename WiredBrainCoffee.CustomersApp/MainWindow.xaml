@@ -10,6 +10,7 @@
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="Auto" />
       <ColumnDefinition />
+      <ColumnDefinition Width="Auto" />
     </Grid.ColumnDefinitions>
       
     <Grid.RowDefinitions>
@@ -21,7 +22,7 @@
     </Grid.RowDefinitions>
 
     <!-- Main menu -->
-    <Menu FontSize="20" Grid.ColumnSpan="2">
+    <Menu FontSize="20" Grid.ColumnSpan="3">
       <MenuItem Header="_View">
         <MenuItem Header="_Customers"/>
         <MenuItem Header="_Products"/>
@@ -30,7 +31,7 @@
 
     <!-- Header -->
     <!-- Grid inside of a Grid. -->
-    <Grid Grid.Row="1" Grid.ColumnSpan="2" Background="#F05A28">
+    <Grid Grid.Row="1" Grid.ColumnSpan="3" Background="#F05A28">
         <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
             <Image Source="/Images/logo.png" Width="100" Margin="5" />
             <TextBlock Text="Customers App" FontSize="30"  Foreground="White" VerticalAlignment="Center" />
@@ -39,7 +40,7 @@
     </Grid>
 
     <!-- Customer list -->
-    <Grid Grid.Row="2" Background="#777">
+    <Grid x:Name="customerListGrid" Grid.Row="2" Grid.Column="2" Background="#777">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition Height="*" />
@@ -53,7 +54,7 @@
           </StackPanel>
         </Button>
         <Button Content="Delete" Width="75" Margin="0 10 10 10" />
-        <Button Margin="0 10 10 10">
+        <Button Margin="0 10 10 10" Click="ButtonMoveNavigation_Click">
           <Image Source="/Images/move.png" Height="18"/>
         </Button>
       </StackPanel>
@@ -76,8 +77,8 @@
       </CheckBox>
     </StackPanel>
 
-    <!-- Statusbar -->
-    <StatusBar Grid.Row="3" Grid.ColumnSpan="2">
+    <!-- Status bar -->
+    <StatusBar Grid.Row="3" Grid.ColumnSpan="3">
       <StatusBarItem FontSize="20" Content=" (c) Wired Brain Coffee"/>
     </StatusBar>
   </Grid>
