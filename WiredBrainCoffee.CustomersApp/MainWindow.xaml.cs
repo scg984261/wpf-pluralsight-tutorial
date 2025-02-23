@@ -12,11 +12,11 @@ namespace WiredBrainCoffee.CustomersApp
 
         public void ButtonMoveNavigation_Click(object sender, RoutedEventArgs eventArgs)
         {
-            int column = (int) this.customerListGrid.GetValue(Grid.ColumnProperty);
+            int column = Grid.GetColumn(this.customerListGrid);
 
             int newColumn = column == 0 ? 2 : 0;
 
-            this.customerListGrid.SetValue(Grid.ColumnProperty, newColumn);
+            Grid.SetColumn(customerListGrid, newColumn);
         }
     }
 }
