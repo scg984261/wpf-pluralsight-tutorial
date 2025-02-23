@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using WiredBrainCoffee.CustomersApp.Data;
 using WiredBrainCoffee.CustomersApp.Model;
+using System;
 
 namespace WiredBrainCoffee.CustomersApp.ViewModel
 {
@@ -10,6 +11,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
     {
         private readonly ICustomerDataProvider customerDataProvider;
         public ObservableCollection<Customer> Customers { get; } = new ObservableCollection<Customer>();
+        public Customer? SelectedCustomer { get; set; }
 
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
@@ -32,6 +34,17 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
                     this.Customers.Add(customer);
                 }
             }
+        }
+
+        public void Add()
+        {
+            var customer = new Customer
+            {
+                FirstName = "New"
+            };
+
+            this.Customers.Add(customer);
+            this.SelectedCustomer = customer;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using WiredBrainCoffee.CustomersApp.Model;
 using WiredBrainCoffee.CustomersApp.Data;
 using WiredBrainCoffee.CustomersApp.ViewModel;
 
@@ -32,6 +33,11 @@ namespace WiredBrainCoffee.CustomersApp.View
             int newColumn = column == 0 ? 2 : 0;
 
             Grid.SetColumn(customerListGrid, newColumn);
+        }
+
+        public void AddCustomer_Click(object sender, RoutedEventArgs eventArgs)
+        {
+            this.customerViewModel.Add();
         }
     }
 }
