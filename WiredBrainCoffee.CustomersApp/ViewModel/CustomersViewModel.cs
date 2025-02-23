@@ -25,18 +25,18 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             }
         }
 
-        private int navigationColumn;
+        private NavigationSide navigationSide;
 
-        public int NavigationColumn
+        public NavigationSide NavigationSide
         {
             get
             {
-                return this.navigationColumn;
+                return this.navigationSide;
             }
 
             set
             {
-                this.navigationColumn = value;
+                this.navigationSide = value;
                 NotifyPropertyChanged();
             }
         }
@@ -79,8 +79,20 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
 
         internal void MoveNavigation()
         {
-            int newColumn = this.NavigationColumn == 0 ? 2 : 0;
-            this.NavigationColumn = newColumn;
+            if (this.NavigationSide == NavigationSide.Left)
+            {
+                this.NavigationSide = NavigationSide.Right;
+            }
+            else
+            {
+                this.NavigationSide = NavigationSide.Left;
+            }
         }
+    }
+
+    public enum NavigationSide
+    {
+        Left,
+        Right
     }
 }
