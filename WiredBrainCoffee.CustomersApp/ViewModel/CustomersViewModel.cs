@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using WiredBrainCoffee.CustomersApp.Data;
 using WiredBrainCoffee.CustomersApp.Model;
+using WiredBrainCoffee.CustomersApp.Command;
 
 namespace WiredBrainCoffee.CustomersApp.ViewModel
 {
@@ -22,6 +23,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             {
                 this.selectedCustomer = value;
                 this.NotifyPropertyChanged();
+                this.DeleteCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -41,10 +43,16 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             }
         }
 
+        public DelegateCommand AddCommand { get; }
+        public DelegateCommand MoveNavigationCommand { get; }
+        public DelegateCommand DeleteCommand { get; }
 
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
             this.customerDataProvider = customerDataProvider;
+            this.AddCommand = new DelegateCommand(this.Add);
+            this.MoveNavigationCommand = new DelegateCommand(this.MoveNavigation);
+            this.DeleteCommand = new DelegateCommand(this.Delete, this.CanDelete);
         }
 
         public async Task LoadAsync()
@@ -65,7 +73,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             }
         }
 
-        internal void Add()
+        private void Add(object? parameterk)
         {
             var customer = new Customer
             {
@@ -77,7 +85,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             this.SelectedCustomer = customerItemViewModel;
         }
 
-        internal void MoveNavigation()
+        private void MoveNavigation(object? parameter)
         {
             if (this.NavigationSide == NavigationSide.Left)
             {
@@ -87,6 +95,20 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             {
                 this.NavigationSide = NavigationSide.Left;
             }
+        }
+
+        private void Delete(object? parameter)
+        {
+            if (this.SelectedCustomer != null)
+            {
+                this.Customers.Remove(this.SelectedCustomer);
+                this.SelectedCustomer = null;
+            }
+        }
+
+        private bool CanDelete(object? parameter)
+        {
+            return this.SelectedCustomer != null;
         }
     }
 
