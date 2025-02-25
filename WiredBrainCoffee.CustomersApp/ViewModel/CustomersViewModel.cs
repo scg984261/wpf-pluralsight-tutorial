@@ -23,7 +23,16 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             {
                 this.selectedCustomer = value;
                 this.NotifyPropertyChanged();
+                this.NotifyPropertyChanged(nameof(this.IsCustomerSelected));
                 this.DeleteCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        public bool IsCustomerSelected
+        {
+            get
+            {
+                return this.SelectedCustomer is not null;
             }
         }
 
