@@ -11,8 +11,9 @@ namespace WiredBrainCoffee.CustomersApp
         public MainWindow()
         {
             InitializeComponent();
-            this.viewModel = new MainViewModel(new CustomersViewModel(new CustomerDataProvider()));
+            this.viewModel = new MainViewModel(new CustomersViewModel(new CustomerDataProvider()), new ProductsViewModel());
             this.DataContext = this.viewModel;
+            this.Loaded += this.MainWindow_Loaded;
         }
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs args)
