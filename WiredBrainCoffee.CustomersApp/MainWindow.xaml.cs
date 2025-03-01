@@ -1,15 +1,23 @@
 ﻿using System.Windows;
+using WiredBrainCoffee.CustomersApp.Data;
+using WiredBrainCoffee.CustomersApp.ViewModel;
 
 namespace WiredBrainCoffee.CustomersApp
 {
     public partial class MainWindow : Window
     {
-        /// <summary>
-        /// 
-        /// </summary>
+        private readonly MainViewModel viewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+            this.viewModel = new MainViewModel(new CustomersViewModel(new CustomerDataProvider()));
+            this.DataContext = this.viewModel;
+        }
+
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs args)
+        {
+            await this.viewModel.LoadAsync();
         }
     }
 }

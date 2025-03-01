@@ -64,7 +64,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             this.DeleteCommand = new DelegateCommand(this.Delete, this.CanDelete);
         }
 
-        public async Task LoadAsync()
+        public override async Task LoadAsync()
         {
             if (this.Customers.Any())
             {

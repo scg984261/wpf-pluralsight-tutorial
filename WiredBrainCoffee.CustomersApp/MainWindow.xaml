@@ -28,7 +28,7 @@
         <!-- Header -->
         <userControls:HeaderControl Grid.Row="1" />
 
-        <view:CustomersView Grid.Row="2" Grid.Column="0" />
+        <view:CustomersView Grid.Row="2" Grid.Column="0" DataContext="{Binding SelectedViewModel}" />
 
         <!-- Status bar -->
         <StatusBar Grid.Row="3">
