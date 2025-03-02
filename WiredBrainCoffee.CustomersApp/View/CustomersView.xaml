@@ -48,18 +48,6 @@
 
         <!-- Customer detail -->
         <StackPanel Margin="10" Grid.Column="1" Visibility="{Binding IsCustomerSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
-            <StackPanel.Resources>
-                <Style TargetType="TextBox" x:Key="TextBoxStyleBase">
-                    <Setter Property="Padding" Value="5" />
-                </Style>
-                <!-- Inherit this style from a base style. -->
-                <!-- No x:Key attribute means that this style is an implicit style. -->
-                <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxStyleBase}">
-                    <Setter Property="Background" Value="#555555" />
-                    <Setter Property="Foreground" Value="White" />
-                    <Setter Property="Padding" Value="5" />
-                </Style>
-            </StackPanel.Resources>
             <Label>First Name:</Label>
             <!-- Replacing this in my next commit - business logic in the front end. -->
             <TextBox Text="{Binding SelectedCustomer.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
