@@ -10,6 +10,16 @@
     <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxStyleBase}">
         <Setter Property="Background" Value="#555555" />
         <Setter Property="Foreground" Value="White" />
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <StackPanel>
+                        <AdornedElementPlaceholder />
+                        <TextBlock Foreground="Red" Text="This is not valid" Margin="3,0,0,0" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Padding" Value="5" />
         <Setter Property="BorderBrush" Value="#111111" />
         <Style.Triggers>
@@ -22,6 +32,7 @@
             <Trigger Property="Validation.HasError" Value="True">
                 <Setter Property="Background" Value="Red" />
                 <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                <Setter Property="Margin" Value="0,0,0,20" />
             </Trigger>
         </Style.Triggers>
     </Style>

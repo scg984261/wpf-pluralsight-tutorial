@@ -64,7 +64,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
                 return;
             }
 
-            if (!this.errorsByPropertyName.ContainsKey(propertyName))
+            if (this.errorsByPropertyName.ContainsKey(propertyName))
             {
                 this.errorsByPropertyName.Remove(propertyName);
                 this.OnErrorsChanged(new DataErrorsChangedEventArgs(propertyName));
