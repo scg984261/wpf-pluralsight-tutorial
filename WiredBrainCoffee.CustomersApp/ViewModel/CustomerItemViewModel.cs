@@ -25,7 +25,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
 
                 if (string.IsNullOrEmpty(this.customer.FirstName))
                 {
-                    const string errorMessage = "First name cannot be null!";
+                    const string errorMessage = "First name is required!";
                     this.AddError(errorMessage);
                 }
                 else
