@@ -28,7 +28,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
         {
             this.CustomersViewModel = customersViewModel;
             this.ProductsViewModel = productsViewModel;
-            this.SelectedViewModel = this.ProductsViewModel;
+            this.SelectedViewModel = this.CustomersViewModel;
             this.SelectViewModelCommand = new DelegateCommand(SelectViewModel);
         }
 

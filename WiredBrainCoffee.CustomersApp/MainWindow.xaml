@@ -36,7 +36,8 @@
 
         <!-- Header -->
         <userControls:HeaderControl Grid.Row="1" />
-
+        
+        <!-- Show either the Customers View Model or the Customers View Model. -->
         <ContentControl Grid.Row="2" Grid.Column="0" Content="{Binding SelectedViewModel}" />
 
         <!-- Status bar -->
