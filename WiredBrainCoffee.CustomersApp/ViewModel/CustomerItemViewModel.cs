@@ -2,7 +2,7 @@
 
 namespace WiredBrainCoffee.CustomersApp.ViewModel
 {
-    public class CustomerItemViewModel : ViewModelBase
+    public class CustomerItemViewModel : ValidationViewModelBase
     {
         private readonly Customer customer;
 
@@ -22,6 +22,16 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             {
                 this.customer.FirstName = value;
                 NotifyPropertyChanged();
+
+                if (string.IsNullOrEmpty(this.customer.FirstName))
+                {
+                    const string errorMessage = "First name cannot be null!";
+                    this.AddError(errorMessage);
+                }
+                else
+                {
+                    this.ClearErrors();
+                }
             }
         }
 
