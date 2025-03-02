@@ -8,6 +8,7 @@
                 <ResourceDictionary Source="Resources\Brushes.xaml" />
                 <ResourceDictionary Source="Resources\Converters.xaml" />
                 <ResourceDictionary Source="Styles\TextBox.xaml" />
+                <ResourceDictionary Source="Styles\Checkbox.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
